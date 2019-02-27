@@ -1,6 +1,6 @@
 # Cardano Wallet/Node - Docker
 
-This project will build a 1.3.x Cardano Node and Wallet running within a docker container on Ubuntu. This repo was forked from [here](https://github.com/TheDevKnight/cardano-sl-wallet) and thanks to @TheDevKnight for his help in getting me up and going. I also borrowed config content from [here](https://github.com/EmurgoVN/cardano_docker).
+This project will build a 2.0.1 Cardano Node and Wallet running within a docker container on Ubuntu. This repo was forked from [here](https://github.com/TheDevKnight/cardano-sl-wallet) and thanks to @TheDevKnight for his help in getting me up and going. I also borrowed config content from [here](https://github.com/EmurgoVN/cardano_docker).
 
 ## Requirements
 - Ubuntu - OSX did not work for me ;(

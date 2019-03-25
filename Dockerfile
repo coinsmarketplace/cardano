@@ -17,9 +17,10 @@ RUN chmod a+x /home/cardano/cardano-sl/start-cardano-container.sh
 
 RUN echo "cardano ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN curl https://nixos.org/nix/install | sh
 USER cardano
 ENV USER cardano
-RUN curl https://nixos.org/nix/install | sh
+
 
 WORKDIR /home/cardano/cardano-sl
 RUN git checkout tags/2.0.1

@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 RUN apt-get update &&\
-   apt-get install -y git curl bzip2 nginx sudo nano &&\
+   apt-get install -y git curl bzip2 nginx sudo nano  xz-utils &&\
    useradd -ms /bin/bash cardano &&\
    mkdir -m 0755 /nix &&\
    chown cardano /nix &&\
@@ -17,8 +17,15 @@ RUN chmod a+x /home/cardano/cardano-sl/start-cardano-container.sh
 
 RUN echo "cardano ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN groupadd -r nixbld
+
+RUN for n in $(seq 1 10); do useradd -c "Nix build user $n" \
+    -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(which nologin)" \
+    nixbld$n; done
+
 USER cardano
 ENV USER cardano
+
 RUN curl https://nixos.org/nix/install | sh
 
 WORKDIR /home/cardano/cardano-sl
